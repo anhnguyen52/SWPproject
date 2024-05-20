@@ -52,7 +52,7 @@
                 <h1>Web quản lý thực tập sinh tại DX-LAB</h1>
 
             </div>
-            <div><img src="/img/posters.jpg" alt=""></div>
+            <div><img src="./img/posters.jpg" alt=""></div>
         </div>
 
         <!-- Footer -->
