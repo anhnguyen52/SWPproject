@@ -73,7 +73,7 @@
 .nav_links.active {
     width: 250px; 
     border: 1px solid rgb(80, 80, 255);
-    border-radius:10px;
+    border-radius: 10px;
 }
 
 .nav_links ul {
@@ -104,7 +104,7 @@
 }
 
 .footer {
-    position: fixed;
+    position: static;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -112,4 +112,14 @@
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+
+.container{
+    width:100%;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    flex-direction: column;
 }

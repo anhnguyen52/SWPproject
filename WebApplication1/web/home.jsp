@@ -45,6 +45,16 @@
             </div>    
         </div>
 
+        <!-- Container-->
+
+        <div class="container">
+            <div class="content">
+                <h1>Web quản lý thực tập sinh tại DX-LAB</h1>
+
+            </div>
+            <div><img src="/img/posters.jpg" alt=""></div>
+        </div>
+
         <!-- Footer -->
         <footer class="footer" style="display: flex; justify-content: space-between">
             <div class="left" style="width: 30%; text-align: left; margin: 10px;">
