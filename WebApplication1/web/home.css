@@ -71,7 +71,9 @@
 }
 
 .nav_links.active {
-    width: 250px; /* Change this to the desired width */
+    width: 250px; 
+    border: 1px solid rgb(80, 80, 255);
+    border-radius:10px;
 }
 
 .nav_links ul {
