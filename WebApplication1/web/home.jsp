@@ -55,7 +55,7 @@
             <div><img src="./img/posters.jpg" alt=""></div>
         </div>
 
-       
+        <jsp:include page="footer.jsp" ></jsp:include>
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
