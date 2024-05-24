@@ -11,40 +11,45 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <link href="css/home.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/headerAndFooterr.css">
     </head>
     <body>
-        <!-- Login 11 - Bootstrap Brain Component -->
-        <section class="py-3 py-md-5 py-xl-8">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="mb-5">
-                            <h2 class="display-5 fw-bold text-center">Sign in</h2>
-                            <p class="text-center m-0">Don't have an account? <a href="signup.jsp">Sign up</a></p>
-                            <a href="home.jsp">Back to home</a>
+
+        <jsp:include page="header.jsp"></jsp:include>
+
+            <!-- Login 11 - Bootstrap Brain Component -->
+            <section class="py-3 py-md-5 py-xl-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-5">
+                                <h2 class="display-5 fw-bold text-center">Sign in</h2>
+                                <p class="text-center m-0">Don't have an account? <a href="function1.jsp">Sign up</a></p>
+                                <a href="home.jsp">Back to home</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-10 col-xl-8">
-                        <div class="row gy-5 justify-content-center">
-                            <div class="col-12 col-lg-5">
-                                <form action="login" method="get">
-                                    <div class="row gy-3 overflow-hidden">
-                                        <div class="col-12">
-                                            <div class="form-floating mb-3">
-                                                <!--<input type="text" name="username" placeholder="Username" required style="background-color: white" >-->
-                                                <input type="text" class="form-control border-0 border-bottom rounded-0" name="username" id="username" placeholder="name@fpt.edu.vn" required>
-                                                <label for="username" class="form-label">Email</label>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-10 col-xl-8">
+                            <div class="row gy-5 justify-content-center">
+                                <div class="col-12 col-lg-5">
+                                    <form action="login" method="get">
+                                        <div class="row gy-3 overflow-hidden">
+                                            <div class="col-12">
+                                                <div class="form-floating mb-3">
+                                                    <!--<input type="text" name="username" placeholder="Username" required style="background-color: white" >-->
+                                                    <input type="text" class="form-control border-0 border-bottom rounded-0" name="username" id="username" placeholder="name@fpt.edu.vn" required>
+                                                    <label for="username" class="form-label">Email</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <!--<div class="form-floating mb-3">
-                                                <input type="password" class="form-control border-0 border-bottom rounded-0" name="password" id="password" value="" placeholder="Password" required>
-                                                <label for="password" class="form-label">Password</label>
-                                            </div>-->
+                                            <div class="col-12">
+                                                <!--<div class="form-floating mb-3">
+                                                    <input type="password" class="form-control border-0 border-bottom rounded-0" name="password" id="password" value="" placeholder="Password" required>
+                                                    <label for="password" class="form-label">Password</label>
+                                                </div>-->
 
-                                            <p>${mess}</p>
+                                                <p>${mess}</p>
                                         </div>
                                         <div class="col-12">
                                             <div class="row justify-content-between">
@@ -67,7 +72,6 @@
                                             <div class="d-grid">
                                                 <!--<button class="btn btn-primary btn-lg" type="submit">Log in</button>-->
                                                 <input type="submit" value="Login">
-
                                             </div>
                                         </div>
                                     </div>
@@ -108,5 +112,8 @@
                 </div>
             </div>
         </section>
+
+        <jsp:include page="footerr.jsp"></jsp:include>
+
     </body>
 </html>

@@ -17,33 +17,19 @@
     </head>
 
     <body>
-        
+
         <jsp:include page="header.jsp"></jsp:include>
-        
-        <!-- Container-->
-        <div class="container">
-            <div class="content">
-                <h1>Web quản lý thực tập sinh tại DX-LAB</h1>
 
+            <!-- Container-->
+            <div class="container">
+                <div class="content">
+                    <h1>Web quản lý thực tập sinh tại DX-LAB</h1>
+
+                </div>
+                <div><img src="./img/posters.jpg" alt=""></div>
             </div>
-            <div><img src="./img/posters.jpg" alt=""></div>
-        </div>
 
-        <jsp:include page="footer.jsp" ></jsp:include>
+        <jsp:include page="footerr.jsp"></jsp:include>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const menuHamburger = document.querySelector('.fa-bars');
-                const navLinks = document.getElementById('navLinks');
-                menuHamburger.addEventListener('click', function () {
-                    navLinks.classList.toggle('active');
-                    if (navLinks.classList.contains('active')) {
-                        document.body.style.overflow = 'hidden';
-                    } else {
-                        document.body.style.overflow = '';
-                    }
-                });
-            });
-        </script>
     </body>
 </html>
