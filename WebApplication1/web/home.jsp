@@ -17,14 +17,12 @@
     </head>
 
     <body>
-
         <jsp:include page="header.jsp"></jsp:include>
 
             <!-- Container-->
             <div class="container">
                 <div class="content">
-                    <h1>Web quản lý thực tập sinh tại DX-LAB</h1>
-
+                    <h1 style="color: rgb(80,80,255);">Web quản lý thực tập sinh tại DX-LAB</h1>
                 </div>
                 <div><img src="./img/posters.jpg" alt=""></div>
             </div>

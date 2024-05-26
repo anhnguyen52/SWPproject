@@ -19,14 +19,16 @@ public class Account {
     private String gender;
     private String phone_number;
     private String avatar;
-    private String address;
+    private String specialization;
     private int role_id;
+    private byte is_active;
     private String password;
+    private String certiicate;
 
     public Account() {
     }
 
-    public Account(String user_id, String username, String full_name, Date dob, String gender, String phone_number, String avatar, String address, int role_id, String password) {
+    public Account(String user_id, String username, String full_name, Date dob, String gender, String phone_number, String avatar, String specialization, int role_id, byte is_active, String password, String certiicate) {
         this.user_id = user_id;
         this.username = username;
         this.full_name = full_name;
@@ -34,9 +36,11 @@ public class Account {
         this.gender = gender;
         this.phone_number = phone_number;
         this.avatar = avatar;
-        this.address = address;
+        this.specialization = specialization;
         this.role_id = role_id;
+        this.is_active = is_active;
         this.password = password;
+        this.certiicate = certiicate;
     }
 
     public String getUser_id() {
@@ -95,12 +99,12 @@ public class Account {
         this.avatar = avatar;
     }
 
-    public String getAddress() {
-        return address;
+    public String getSpecialization() {
+        return specialization;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 
     public int getRole_id() {
@@ -111,6 +115,14 @@ public class Account {
         this.role_id = role_id;
     }
 
+    public byte getIs_active() {
+        return is_active;
+    }
+
+    public void setIs_active(byte is_active) {
+        this.is_active = is_active;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -119,11 +131,19 @@ public class Account {
         this.password = password;
     }
 
+    public String getCertiicate() {
+        return certiicate;
+    }
+
+    public void setCertiicate(String certiicate) {
+        this.certiicate = certiicate;
+    }
+
     @Override
     public String toString() {
-        return "Account{" + "user_id=" + user_id + ", username=" + username + ", full_name=" + full_name + ", dob=" + dob + ", gender=" + gender + ", phone_number=" + phone_number + ", avatar=" + avatar + ", address=" + address + ", role_id=" + role_id + ", password=" + password + '}';
+        return "Account{" + "user_id=" + user_id + ", username=" + username + ", full_name=" + full_name + ", dob=" + dob + ", gender=" + gender + ", phone_number=" + phone_number + ", avatar=" + avatar + ", specialization=" + specialization + ", role_id=" + role_id + ", is_active=" + is_active + ", password=" + password + ", certiicate=" + certiicate + '}';
     }
-    
+
     
 
 }

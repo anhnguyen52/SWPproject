@@ -11,14 +11,15 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import models.Account;
 
 /**
  *
  * @author ADMIN
  */
-public class LoginControl extends HttpServlet {
+public class SignupControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,21 +33,40 @@ public class LoginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
         DAO dao = new DAO();
-        Account acc = dao.login(username, password);
-        if (acc == null) {
-            request.setAttribute("mess", "Wrong username or password");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        } else {
-            HttpSession session = request.getSession();
-            String role_name = dao.getRoleName(acc.getRole_id());
-            session.setAttribute("account", acc);
-            session.setAttribute("role_name", role_name);
-            session.setMaxInactiveInterval(1000);
-            response.sendRedirect("home");
+        String userName = request.getParameter("userName");
+        String fullName = request.getParameter("fullName");
+        String dobStr = request.getParameter("dob");
+        String gender = request.getParameter("gender");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String avatar = request.getParameter("avatar");
+        String specialization = request.getParameter("specialization");
+        String password = request.getParameter("password");
+        String repeatPassword = request.getParameter("repeatPassword");
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date dob = dateFormat.parse(dobStr);
+
+            if (!password.equals(repeatPassword)) {
+                request.setAttribute("messErrorPass", "Password and Re-Password must be the same");
+                request.getRequestDispatcher("signup.jsp").forward(request, response);
+            } else {
+                Account existingAccount = dao.searchAccountByUsername(userName);
+                if (existingAccount != null && existingAccount.getPassword() != null) {
+                    request.setAttribute("messErrorUsername", "Bạn đã đăng ký rồi, không thể đăng ký lại.");
+                    request.getRequestDispatcher("signup.jsp").forward(request, response);
+                } else {
+                    if (existingAccount == null) {
+                        request.setAttribute("messErrorUsername", "Bạn không có quyền đăng ký");
+                        request.getRequestDispatcher("signup.jsp").forward(request, response);
+                    } else {
+                        dao.updateAccount(userName, fullName, dob, gender, phoneNumber, avatar, specialization, password);
+                        request.getRequestDispatcher("login").forward(request, response);
+                    }
+                }
+            }
+        } catch (Exception ex) {
         }
     }
 
