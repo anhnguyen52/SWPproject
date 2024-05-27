@@ -32,8 +32,9 @@
 
                 <div class="links">
                     <a href="forgetPassword.jsp">Forget Password?</a> /
-                    <a href="signup.jsp">Sign Up</a> /
                     <a href="home.jsp">Back to Home</a>
+                    <p>If you are a new candidate, <a href="signup.jsp">Sign Up</a> </p>
+
                 </div>
             </form>
         </div>

@@ -12,7 +12,9 @@ body {
     border-radius: 20px;
 }
 .signup-container h2 {
+    font-size: 30px;
     text-align: center;
+    margin-top: 10px;
     margin-bottom: 20px;
     font-weight: 500;
 }
