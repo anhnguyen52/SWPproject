@@ -45,36 +45,50 @@
 
         <!-- Menu -->
 
-        <c:if test = "${sessionScope.account.role_id == 1}">
+        <c:if test = "${sessionScope.account != null}">
             <div class="menu">
                 <i class="fa-solid fa-bars " aria-hidden="true" style="font-size: 30px;cursor: pointer;"></i>
                 <div class="nav_links" id="navLinks">
-                    <ul class="nav-links-item">
-                        <li class="nav-links-item-li" ><a href="home.jsp">Home</a></li>
-                        <li class="nav-links-item-li" ><a href="">recruitment news</a></li>
-                        <li class="nav-links-item-li" ><a href="">interview schedule</a></li>
-                        <li class="nav-links-item-li" ><a href="">recruitment result</a></li>
-                        <li class="nav-links-item-li" >
-                            <c:if test="${sessionScope.account != null}">
-                                <div>
-                                    <a ref="#" onclick="doLogOut()" style="font-size: 20px; cursor: pointer" >Logout</a>
-                                </div>
-                            </c:if>
-                        </li>
-                    </ul><br>
-                </div>    
-            </div>
-        </c:if>
-        
-        <c:if test = "${sessionScope.account.role_id == 4}">
-            <div class="menu">
-                <i class="fa-solid fa-bars " aria-hidden="true" style="font-size: 30px;cursor: pointer;"></i>
-                <div class="nav_links" id="navLinks">
-                    <ul class="nav-links-item">
-                        <li class="nav-links-item-li" ><a href="home.jsp">Home HR</a></li>
+                    <c:if test = "${sessionScope.account.role_id == 1}">
+                        <ul class="nav-links-item">
+                            <li class="nav-links-item-li" ><a href="home">Home candidate</a></li>
+                            <li class="nav-links-item-li" ><a href="">recruitment news</a></li>
+                            <li class="nav-links-item-li" ><a href="">interview schedule</a></li>
+                            <li class="nav-links-item-li" ><a href="">recruitment result</a></li>
+                    </c:if>
+                            
+                    <c:if test = "${sessionScope.account.role_id == 2}">
+                        <ul class="nav-links-item">
+                            <li class="nav-links-item-li" ><a href="home.jsp">Home intern</a></li>
+                            <li class="nav-links-item-li" ><a href="">recruitment news</a></li>
+                            <li class="nav-links-item-li" ><a href="">interview schedule</a></li>
+                            <li class="nav-links-item-li" ><a href="">recruitment result</a></li>
+                    </c:if>
+                            
+                    <c:if test = "${sessionScope.account.role_id == 3}">
+                        <ul class="nav-links-item">
+                            <li class="nav-links-item-li" ><a href="home.jsp">Home mentor</a></li>
+                            <li class="nav-links-item-li" ><a href="">mentor</a></li>
+                            <li class="nav-links-item-li" ><a href="">mentor</a></li>
+                            <li class="nav-links-item-li" ><a href="">mentor</a></li>
+                    </c:if>
+                            
+                    <c:if test = "${sessionScope.account.role_id == 4}">
+                        <ul class="nav-links-item">
+                            <li class="nav-links-item-li" ><a href="home.jsp">Home HR</a></li>
                         <li class="nav-links-item-li" ><a href="">HR</a></li>
                         <li class="nav-links-item-li" ><a href="">HR</a></li>
                         <li class="nav-links-item-li" ><a href="">HR</a></li>
+                    </c:if> 
+                        
+                    <c:if test = "${sessionScope.account.role_id == 5}">
+                        <ul class="nav-links-item">
+                            <li class="nav-links-item-li" ><a href="home.jsp">Home Lab Manager</a></li>
+                        <li class="nav-links-item-li" ><a href="">Lab Manager</a></li>
+                        <li class="nav-links-item-li" ><a href="">Lab Manager</a></li>
+                        <li class="nav-links-item-li" ><a href="">Lab Manager</a></li>
+                    </c:if>
+
                         <li class="nav-links-item-li" >
                             <c:if test="${sessionScope.account != null}">
                                 <div>
