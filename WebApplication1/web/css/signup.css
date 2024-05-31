@@ -12,13 +12,14 @@ body {
     border-radius: 20px;
 }
 .signup-container h2 {
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
     font-weight: 500;
 }
 .signup-container input[type="text"],
+.signup-container input[type="number"],
 .signup-container input[type="password"],
 .signup-container input[type="date"],
 .signup-container input[type="file"],
@@ -33,7 +34,7 @@ body {
 .signup-container input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: rgb(80,80,255);
+    background-color: #202942;
     color: white;
     border: none;
     border-radius: 20px;
@@ -52,7 +53,7 @@ body {
     margin-top: 20px;
 }
 .signup-container .links a {
-    color: rgb(80,80,255);
+    color: #202942;
     text-decoration: none;
 }
 

@@ -33,14 +33,14 @@ public class DAO {
                 return new Account(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDate(4),
-                        rs.getString(5),
+                        rs.getString(4),
+                        rs.getDate(5),
                         rs.getString(6),
                         rs.getString(7),
                         rs.getString(8),
-                        rs.getInt(9),
-                        rs.getByte(10),
-                        rs.getString(11),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getByte(11),
                         rs.getString(12));
             }
 
@@ -62,14 +62,14 @@ public class DAO {
                 return new Account(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDate(4),
-                        rs.getString(5),
+                        rs.getString(4),
+                        rs.getDate(5),
                         rs.getString(6),
                         rs.getString(7),
                         rs.getString(8),
-                        rs.getInt(9),
-                        rs.getByte(10),
-                        rs.getString(11),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getByte(11),
                         rs.getString(12));
             }
 
@@ -89,14 +89,14 @@ public class DAO {
                 return new Account(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDate(4),
-                        rs.getString(5),
+                        rs.getString(4),
+                        rs.getDate(5),
                         rs.getString(6),
                         rs.getString(7),
                         rs.getString(8),
-                        rs.getInt(9),
-                        rs.getByte(10),
-                        rs.getString(11),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getByte(11),
                         rs.getString(12));
             }
         } catch (Exception e) {
@@ -138,6 +138,10 @@ public class DAO {
 
         }
         return roleName;
+    }
+    
+    public void ChangeInfoOfUserPage(String full_name, Date dob, String gender, String phone_number, String Specializaion){
+        
     }
 
     public static void main(String[] args) {

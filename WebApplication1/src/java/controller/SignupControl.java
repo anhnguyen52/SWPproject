@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Pattern;
 import models.Account;
 
 /**
@@ -44,29 +45,61 @@ public class SignupControl extends HttpServlet {
         String password = request.getParameter("password");
         String repeatPassword = request.getParameter("repeatPassword");
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         try {
             Date dob = dateFormat.parse(dobStr);
 
-            if (!password.equals(repeatPassword)) {
-                request.setAttribute("messErrorPass", "Password and Re-Password must be the same");
+            if (!userName.endsWith("@fpt.edu.vn") && !userName.endsWith("@fe.edu.vn")) {
+                request.setAttribute("messErrorUsername", "Username must end with @fpt.edu.vn or @fe.edu.vn.");
                 request.getRequestDispatcher("signup.jsp").forward(request, response);
-            } else {
-                Account existingAccount = dao.searchAccountByUsername(userName);
-                if (existingAccount != null && existingAccount.getPassword() != null) {
-                    request.setAttribute("messErrorUsername", "Bạn đã đăng ký rồi, không thể đăng ký lại.");
+                return;
+            }
+            
+            if (!fullName.matches("^[A-Z][a-z]+(?: [A-Z][a-z]+)*$")) {
+                request.setAttribute("messErrorFullName", "Invalid full name");
+                request.getRequestDispatcher("signup.jsp").forward(request, response);
+                return;
+            }
+
+
+            if (!password.equals(repeatPassword)) {
+                request.setAttribute("messErrorPass", "Password and Re-Password must be the same.");
+                request.getRequestDispatcher("signup.jsp").forward(request, response);
+                return;
+            }
+
+            Date now = new Date();
+            long ageInMillis = now.getTime() - dob.getTime();
+            long age = ageInMillis / (1000L * 60 * 60 * 24 * 365);
+            if (age < 18) {
+                request.setAttribute("messErrorDob", "You must be at least 18 years old.");
+                request.getRequestDispatcher("signup.jsp").forward(request, response);
+                return;
+            }
+
+            if (avatar != null && !avatar.isEmpty()) {
+                String mimeType = getServletContext().getMimeType(avatar);
+                if (mimeType == null || !mimeType.startsWith("image")) {
+                    request.setAttribute("messErrorAvatar", "Avatar must be an image file.");
                     request.getRequestDispatcher("signup.jsp").forward(request, response);
-                } else {
-                    if (existingAccount == null) {
-                        request.setAttribute("messErrorUsername", "Bạn không có quyền đăng ký");
-                        request.getRequestDispatcher("signup.jsp").forward(request, response);
-                    } else {
-                        dao.updateAccount(userName, fullName, dob, gender, phoneNumber, avatar, specialization, password);
-                        request.getRequestDispatcher("login").forward(request, response);
-                    }
+                    return;
                 }
             }
-        } catch (Exception ex) {
+
+            Account existingAccount = dao.searchAccountByUsername(userName);
+            if (existingAccount != null && existingAccount.getPassword() != null) {
+                request.setAttribute("messErrorUsername", "This username is already registered.");
+                request.getRequestDispatcher("signup.jsp").forward(request, response);
+            } else {
+                if (existingAccount == null) {
+                    request.setAttribute("messErrorUsername", "You are not authorized to register.");
+                    request.getRequestDispatcher("signup.jsp").forward(request, response);
+                } else {
+                    dao.updateAccount(userName, fullName, dob, gender, phoneNumber, avatar, specialization, password);
+                    request.getRequestDispatcher("login").forward(request, response);
+                }
+            }
+        } catch (Exception e) {
         }
     }
 

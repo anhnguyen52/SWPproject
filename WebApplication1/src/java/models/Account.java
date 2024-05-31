@@ -14,6 +14,7 @@ public class Account {
 
     private String user_id;
     private String username;
+    private String password;
     private String full_name;
     private Date dob;
     private String gender;
@@ -22,15 +23,15 @@ public class Account {
     private String specialization;
     private int role_id;
     private byte is_active;
-    private String password;
     private String certiicate;
 
     public Account() {
     }
 
-    public Account(String user_id, String username, String full_name, Date dob, String gender, String phone_number, String avatar, String specialization, int role_id, byte is_active, String password, String certiicate) {
+    public Account(String user_id, String username, String password, String full_name, Date dob, String gender, String phone_number, String avatar, String specialization, int role_id, byte is_active, String certiicate) {
         this.user_id = user_id;
         this.username = username;
+        this.password = password;
         this.full_name = full_name;
         this.dob = dob;
         this.gender = gender;
@@ -39,7 +40,6 @@ public class Account {
         this.specialization = specialization;
         this.role_id = role_id;
         this.is_active = is_active;
-        this.password = password;
         this.certiicate = certiicate;
     }
 
@@ -57,6 +57,14 @@ public class Account {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFull_name() {
@@ -123,14 +131,6 @@ public class Account {
         this.is_active = is_active;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getCertiicate() {
         return certiicate;
     }
@@ -138,12 +138,5 @@ public class Account {
     public void setCertiicate(String certiicate) {
         this.certiicate = certiicate;
     }
-
-    @Override
-    public String toString() {
-        return "Account{" + "user_id=" + user_id + ", username=" + username + ", full_name=" + full_name + ", dob=" + dob + ", gender=" + gender + ", phone_number=" + phone_number + ", avatar=" + avatar + ", specialization=" + specialization + ", role_id=" + role_id + ", is_active=" + is_active + ", password=" + password + ", certiicate=" + certiicate + '}';
-    }
-
     
-
 }

@@ -16,6 +16,10 @@
         <servlet-name>UserInfoControl</servlet-name>
         <servlet-class>controller.UserInfoControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AccountManage</servlet-name>
+        <servlet-class>controllerForAdmin.AccountManage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>UserInfoControl</servlet-name>
         <url-pattern>/userInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountManage</servlet-name>
+        <url-pattern>/accountManage</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>
